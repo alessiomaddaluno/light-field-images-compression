@@ -1,7 +1,10 @@
 from enum import Enum
 
 class Algorithm(Enum):
-    HEVC = ("libx265", "mp4", ["-x265-params", "lossless=1"])
+    HEVC = ("libx265", "mp4", [
+        "-x265-params", "lossless=1",
+        "-pix_fmt", "yuv444p"  
+    ])
     AV1 = ("libaom-av1", "mkv", ["-aom-params", "lossless=1"])
     VP9 = ("libvpx-vp9", "webm", ["-lossless", "1"])
     HUFFYUV = ("huffyuv", "avi", [])
